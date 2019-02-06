@@ -10,12 +10,20 @@
     </div>
     <div class="col-md-8">
         <h3><%= user.username %>'s campgrounds:</h3>
+        
         <ul>
             <% campgrounds.forEach(function(campground) { %>
                 <li><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
             <% }); %>
         </ul>
-    </div>
+        
+        <% if ((currentUser && user._id.equals(currentUser._id))) { %>
+            <a class="btn btn-warning"
+               href="/users/<%= user.id %>/edit">
+                Edit Profile
+            </a>
+        <% } %>
+    </di
 </div>
 
 <% include ../partials/footer %>
